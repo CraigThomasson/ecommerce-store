@@ -1,5 +1,5 @@
 {% load static %}
-
+<!-- code on this page is modled on the base.html code fomr code institute boutique ado project -->
 <!doctype html>
 <html lang="en">
   <head>
@@ -23,7 +23,7 @@
 
     {% block extrajs %}
     {% endblock %}
-
+    <script src="https://kit.fontawesome.com/b75ce917d6.js" crossorigin="anonymous"></script>
     <title>CandleKeep</title>
   </head>
   <body>
@@ -34,11 +34,20 @@
         <div class="col-12 col-lg-4 my-auto">
           <!------------------------------------------------------------- product search bar -->
           <form action="#" method="get">
-            <input name="q" type="text" placeholder="Search...">
-            <input type="submit" class="btn btn-primary">
-        </form>
+            <div class="input-group">
+              <div class="form-outline">
+                <input class="form-control" name="q" type="text" placeholder="Search...">
+              </div>
+              <div class="input-group-append">
+                <button type="button" class="btn btn-primary">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
         <div class="col-12 col-lg-4 my-auto">
+          <!--------------------------------------------------------- user profile navigation -->
           <ul class="list-inline list-unstyled">
             <li class="list-inline-item dropdown">
               <a href="#" class="nav-link" id="user-choices" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -58,7 +67,22 @@
                 {% endif %}
               </div>
             </li>
-            <li></li>
+            <!------------------------------------------------------- shopping bag link -->
+            <!-- code taken from code institue boutique ado project -->
+            <li class="list-inline-item">
+              <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="">
+                  <div class="text-center">
+                    <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                    <p class="my-0">
+                        {% if grand_total %}
+                            ${{ grand_total|floatformat:2 }}
+                        {% else %}
+                            $0.00
+                        {% endif %}
+                    </p>
+                  </div>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
