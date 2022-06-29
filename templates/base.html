@@ -27,7 +27,44 @@
     <title>CandleKeep</title>
   </head>
   <body>
-    <header class="container-fluid fixed_top"></header>
+    <!----------------------------------------------------------------------------------------- main site header -->
+    <header class="container-fluid fixed_top">
+      <div class="row">
+        <div class="col-12 col-lg-4 my-auto text-center text-lg-left">CandleKeep</div>
+        <div class="col-12 col-lg-4 my-auto">
+          <!------------------------------------------------------------- product search bar -->
+          <form action="#" method="get">
+            <input name="q" type="text" placeholder="Search...">
+            <input type="submit" class="btn btn-primary">
+        </form>
+        </div>
+        <div class="col-12 col-lg-4 my-auto">
+          <ul class="list-inline list-unstyled">
+            <li class="list-inline-item dropdown">
+              <a href="#" class="nav-link" id="user-choices" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <p>Account</p>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="user-choices">
+                {% if request.user.is_authenticated %}
+                  {% if request.user.is_admin %}
+                    <a href="#" class="dropdown-item">Manage Site</a>
+                    <div class="dropdown-divider"></div>
+                  {% endif %}
+                  <a href="#" class="dropdown-item">My Profile</a>
+                  <a href="#" class="dropdown-item">Logout</a>
+                {% else %}
+                  <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                  <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                {% endif %}
+                <a class="dropdown-item" href="#">Loggin</a>
+                <a class="dropdown-item" href="#">Register</a>
+              </div>
+            </li>
+            <li></li>
+          </ul>
+        </div>
+      </div>
+    </header>
 
     {% if messages %}
         <div class="message-container"></div>
