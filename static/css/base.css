@@ -21,12 +21,26 @@ body {
     width: 1.5rem;
 }
 
+/* ---------------------------------fonts */
+
+.title-font-a {
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+
+.title-font-b {
+    font-family: 'Work Sans', sans-serif;
+}
+
+.title-font-a, .title-font-b {
+    font-size: 300%;
+    color: #2a0406;
+}
 
 /* ---------------------------------header */
+
 .search-bar {
     width: 80%;
 }
-
 
 /* -----------------------------home page */
 

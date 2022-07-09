@@ -12,6 +12,9 @@
     {% block corecss %}
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
       <link rel="stylesheet" href="{% static 'css/base.css' %}">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@700&family=Work+Sans:wght@300&display=swap" rel="stylesheet">
     {% endblock %}
 
     {% block extracss %}
@@ -31,7 +34,7 @@
     <!----------------------------------------------------------------------------------------- main site header -->
     <header class="container-fluid fixed_top bg-white">
       <div class="row">
-        <div class="col-12 col-lg-4 my-auto text-center text-lg-left">CandleKeep</div>
+        <div class="col-12 col-lg-4 my-auto text-center text-lg-left"><span class="title-font-a">Candle</span><span class="title-font-b">Keep</span></div>
         <div class="col-12 col-lg-4 my-auto">
           <!------------------------------------------------------------- product search bar -->
           <form action="#" method="get">
