@@ -52,3 +52,17 @@ body {
     background: black;
     color: white;
 }
+
+/* -----------------------------cards */
+
+.card-main {
+    height: 484px;
+    margin-bottom: 5px;
+}
+
+.card-image {
+    height: 50%;
+    margin: auto auto;
+    object-fit: cover;
+    position: center center;
+}
