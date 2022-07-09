@@ -54,7 +54,7 @@ body {
 /* -----------------------------cards */
 
 .card {
-    margin: 0 auto;
+    margin: 5px auto 0 auto;
     float: none;
     margin-bottom: 10px;
 }
