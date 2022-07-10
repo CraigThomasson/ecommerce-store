@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col">
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+   <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card card_main"  style="width: 18rem;">
+                    {% if "placeholder" in product.image.url %}
+                        <img src="{% static 'images/defualt-product-img.PNG' %}" class="card-img-top card-image" alt="place holder image">  
+                    {% else %}
+                        <img src="{{ product.image.url }}" class="card-img-top card-image" alt="image of {{product.name|striptags}}">  
+                    {% endif %}
+                    <h2>{{product.name|striptags}}</h2>
+                    <p>Description: {{product.description|striptags}}</p>
+                    <p>Price: £{{product.price|striptags}}</p>
+                    <p>Rating: {{product.rating|striptags}}</p>
+                </div>
+            </div>
+        </div>
+   </div>
+{% endblock %}

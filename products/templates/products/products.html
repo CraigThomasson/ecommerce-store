@@ -14,17 +14,19 @@
         <div class="row">
             {% for product in products %}
                 <div class="col">
-                    <div class="card card-main"  style="width: 18rem;">
-                        {% if "placeholder" in product.image.url %}
-                            <img src="{% static 'images/defualt-product-img.PNG' %}" class="card-img-top card-image" alt="place holder image">  
-                        {% else %}
-                            <img src="{{ product.image.url }}" class="card-img-top card-image" alt="image of {{product.name|striptags}}">  
-                        {% endif %}
-                        <h2>{{product.name|striptags}}</h2>
-                        <p>Description: {{product.description|striptags}}</p>
-                        <p>Price: £{{product.price|striptags}}</p>
-                        <p>Rating: {{product.rating|striptags}}</p>
-                    </div>
+                    <a href="{% url 'view_product' product.id %}">
+                        <div class="card card-main"  style="width: 18rem;">
+                            {% if "placeholder" in product.image.url %}
+                                <img src="{% static 'images/defualt-product-img.PNG' %}" class="card-img-top card-image" alt="place holder image">  
+                            {% else %}
+                                <img src="{{ product.image.url }}" class="card-img-top card-image" alt="image of {{product.name|striptags}}">  
+                            {% endif %}
+                            <h2>{{product.name|striptags}}</h2>
+                            <p>Description: {{product.description|striptags}}</p>
+                            <p>Price: £{{product.price|striptags}}</p>
+                            <p>Rating: {{product.rating|striptags}}</p>
+                        </div>
+                    </a>
                 </div>
             {% endfor %}
         </div>
