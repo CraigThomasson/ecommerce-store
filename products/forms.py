@@ -2,7 +2,7 @@ from django import forms
 from .models import Product, Category
 
 
-class Product_Form(forms.ModelForm):
+class Product_form(forms.ModelForm):
     """
     form for managing crud for products
     """

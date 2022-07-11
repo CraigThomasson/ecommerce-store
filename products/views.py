@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.db.models import Q
 from .models import Product
 from django.contrib.auth.decorators import login_required
+from .forms import Product_form
 
 
 def all_products(request):
@@ -63,10 +64,12 @@ def add_product(request):
         name="site_admin"
     ).exists() or request.user.is_superuser:
         messages.error(request, 'Sorry, only site admin can do that.')
+        print(request.user.groups)
+        print('access denined')
         return redirect(reverse('home'))
     
     if request.method == 'POST':
-        form = ProductForm(request.POST, request.FILES)
+        form = Product_form(request.POST, request.FILES)
         if form.is_valid():
             product = form.save()
             messages.success(request, 'Product Added')
@@ -74,7 +77,7 @@ def add_product(request):
         else:
             messages.error(request, 'The producted was not added. Please check the form is valid.')
     else:
-        form = ProductForm()
+        form = Product_form()
         
     template = 'products/add_product.html'
     context = {

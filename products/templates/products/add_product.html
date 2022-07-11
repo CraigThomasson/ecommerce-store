@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <hr>
+                <h2>Add Product</h2>
+                <hr>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <form method="POST" action="{% url 'add_product' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form | crispy }}
+                    <div>
+                        <a class="btn btn-black rounded-0" href="{% url 'products' %}">Cancel</a>
+                        <button class="btn btn-black rounded-0" type="submit">Add Product</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
