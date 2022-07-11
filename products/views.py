@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 from .models import Product
+from django.contrib.auth.decorators import login_required
 
 
 def all_products(request):
@@ -50,3 +51,36 @@ def view_product(request, product_id):
     }
 
     return render(request, 'products/view_product.html', context)
+
+
+@login_required
+def add_product(request):
+    """
+    view to add products to the db
+    """
+    # checks if user has permition to add products
+    if not request.user.groups.filter(
+        name="site_admin"
+    ).exists() or request.user.is_superuser:
+        messages.error(request, 'Sorry, only site admin can do that.')
+        return redirect(reverse('home'))
+    
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            product = form.save()
+            messages.success(request, 'Product Added')
+            return redirect(reverse('product_detail', args=[product.id]))
+        else:
+            messages.error(request, 'The producted was not added. Please check the form is valid.')
+    else:
+        form = ProductForm()
+        
+    template = 'products/add_product.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
+
+
