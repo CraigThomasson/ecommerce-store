@@ -71,7 +71,7 @@ def add_product(request):
         if form.is_valid():
             product = form.save()
             messages.success(request, 'Product Added')
-            return redirect(reverse('product_detail', args=[product.id]))
+            return redirect(reverse('view_product', args=[product.id]))
         else:
             messages.error(request, 'The producted was not added. Please check the form is valid.')
     else:
@@ -96,18 +96,16 @@ def edit_product(request, product_id):
         print(request.user.groups)
         print('access denined')
         return redirect(reverse('home'))
-    print('acess granted')
     product = get_object_or_404(Product, pk=product_id)
-    print(product)
+
     if request.method == 'POST':
         form = Product_form(request.POST, request.FILES, instance=product)
-        print(form)
-        if form is valid:
+        if form.is_valid():
             form.save()
-            messages.success(request, F'{{product.name}} was updated')
-            return redirect(reverse('product_detail', args=[product.id]))
+            messages.success(request, F'item was updated')
+            return redirect(reverse('view_product', args=[product.id]))
         else:
-            messages.error(request, f'{{product.name}} was not updated please check the from is valid')
+            messages.error(request, f'item was not updated please check the from is valid')
     else:
         form = Product_form(instance=product)
         messages.info(request, f'You are editing {product.name}')
