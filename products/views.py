@@ -87,3 +87,36 @@ def add_product(request):
     return render(request, template, context)
 
 
+@login_required
+def eddit_product(request):
+    """
+    view to eddit products in the db
+    """
+    # checks if user has permition to add products
+    if not request.user.groups.filter(
+        name="site_admin"
+    ).exists() or request.user.is_superuser:
+        messages.error(request, 'Sorry, only site admin can do that.')
+        print(request.user.groups)
+        print('access denined')
+        return redirect(reverse('home'))
+
+    product = get_object_or_404(product, pk=product.id)
+    if request.method == 'POST':
+        form = Product_form(request.POST, request.FILES, instance=product)
+        if form is vaild:
+            form.save()
+            messages.success(request, F'{{product.name}} was updated')
+            return redirect(reverse('product_detail', args=[product.id]))
+        else:
+            messages.error(request, f'{{product.name}} was not updated please check the from is valid')
+    else:
+        form = Product_form(instance=product)
+        messages.info(request, f'You are editing {product.name}')
+
+    template = 'products/edit_product.html'
+    context = {
+        'form': form,
+        'product': product,
+    }
+
