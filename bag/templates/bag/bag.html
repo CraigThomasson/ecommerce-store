@@ -2,21 +2,30 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
+    <div class="overlay"></div>
+        <div class="container header-container">
+            <div class="row">
+                <div class="col">
+                    <h2>Shopping Bag</h2>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}
 
 {% block content %}
-<div class="overlay">
     <div class="container">
         <div class="row">
             <div class="col">
-                
+                {% if bag_items %}
+                    <div table-responsive></div>
+                {% else %}
+                    <p class="lead mb-5"> Your bag is empty</p>
+                    <a href="{% url 'products' %}" class="btn rounded-0 btn-lg">
+                        <span class="text-uppercase">Contiune Shopping</span>
+                    </a>
+                {% endif %}
             </div>
         </div>
     </div>
-</div>
 {% endblock %}
