@@ -83,3 +83,9 @@ body {
     object-fit: cover;
     position: center center;
 }
+
+/* ------------------------- bag */
+
+.image-fluid {
+    height: 10px !important;
+}

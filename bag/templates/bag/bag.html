@@ -19,7 +19,28 @@
             <div class="col">
                 {% if bag_items %}
                     <div table-responsive>
-                        {{ bag_items }}
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">img</th>
+                                    <th scope="col">Product name</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Qty</th>
+                                    <th scope="col">Subtotal</th>
+                                </tr>
+                            </thead>
+                            {% for item in bag_items %}
+                                <tbody>
+                                    <td class="p-1 w-25">
+                                        <img src="{{ item.product.image.url }}" class="img-fluid" alt="image of {{item.product.name|striptags}}">
+                                    </td>
+                                    <td>{{ item.product.name }}</td>
+                                    <td>£{{ item.product.price }}</td>
+                                    <td>{{ item.quantity }}</td>
+                                    <td>£{{ total }}</td>
+                                </tbody>
+                            {% endfor %}
+                        </table>
                     </div>
                 {% else %}
                     <p class="lead mb-5"> Your bag is empty</p>
