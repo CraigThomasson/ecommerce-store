@@ -89,3 +89,9 @@ body {
 .image-fluid {
     height: 10px !important;
 }
+
+/*---------------------------- cursor */
+
+.cursor-hover:hover {
+    cursor: pointer;
+}

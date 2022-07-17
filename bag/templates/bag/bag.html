@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load bag_tools %}
 
 {% block page_header %}
     <div class="overlay"></div>
@@ -38,8 +39,8 @@
                                     <td><p>£{{ item.product.price }}</p></td>
                                     <td><p>{{ item.quantity }}</p></td>
                                     <td>
-                                        <p>£{{ total }}</p>
-                                        <p><a class="remove-item text-danger" id="remove_{{ item.item_id }}"><small>Remove Item</small></a></p>
+                                        <p>£{{ item.product.price | calc_subtotal:item.quantity }}</p>
+                                        <p><a class="remove-item text-danger cursor-hover" id="remove_{{ item.item_id }}"><small>Remove Item</small></a></p>
                                     </td>
                                 </tbody>
                             {% endfor %}
