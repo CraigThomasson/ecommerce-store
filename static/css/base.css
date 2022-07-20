@@ -84,6 +84,21 @@ body {
     position: center center;
 }
 
+
+/* --------------------------toast */
+
+.toast_container {
+    position: relative;
+    min-height: 200px;
+}
+
+.toast_right{
+    position: absolute;
+    top: 160px;
+    right: 10px;
+}
+
+
 /* ------------------------- bag */
 
 .image-fluid {
