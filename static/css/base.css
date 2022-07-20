@@ -90,6 +90,7 @@ body {
 .toast_container {
     position: relative;
     min-height: 200px;
+    z-index: 99999;
 }
 
 .toast_right{
