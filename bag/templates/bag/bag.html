@@ -49,6 +49,9 @@
                                     <h6><strong>Bag Total: £{{ total|floatformat:2 }}</strong></h6>
                                     <h6>Delivery: £{{ delivery|floatformat:2 }}</h6>
                                     <h4 class="mt-4"><strong>Grand Total: £{{ grand_total|floatformat:2 }}</strong></h4>
+                                    <a href="{% url 'checkout' %}" class="btn rounded-0 btn-lg">
+                                        <span class="text-uppercase">Go to checkout</span>
+                                    </a>
                                     <a href="{% url 'products' %}" class="btn rounded-0 btn-lg">
                                         <span class="text-uppercase">Contiune Shopping</span>
                                     </a>
