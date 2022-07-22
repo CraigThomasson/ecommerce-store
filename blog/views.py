@@ -3,9 +3,9 @@ from .models import Blog
 
 def blog(request):
     
-    blogs = Blogs.objects.all()
+    blogs = Blog.objects.all()
 
     template = 'blog/blog.html'
 
-    return render(request, template, context)
+    return render(request, template)
 
