@@ -19,14 +19,15 @@
                 <div class="container">
                   <div class="row">
                     <div class="col-12">
+                        {% for blog in blog %}
                         <div class="card w-100">
-                            <h2 class="card-title">card title</h2>
-                            <p class="card-body">content</p>
+                            <h2 class="card-title">{{ blog.title }}</h2>
+                            <p class="card-body">{{blog.body}}</p>
                             <div class="card-footer">
-                                <p>name posted on</p>
+                                <p> {{ blog.added_on }}</p>
                             </div>
-                            
                         </div>
+                        {% endfor %}
                     </div>
                   </div>
                 </div>

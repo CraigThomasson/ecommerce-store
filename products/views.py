@@ -62,8 +62,6 @@ def add_product(request):
     # checks if user has permition to add products
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only site admin can do that.')
-        print(request.user.groups)
-        print('access denined')
         return redirect(reverse('home'))
     
     if request.method == 'POST':
