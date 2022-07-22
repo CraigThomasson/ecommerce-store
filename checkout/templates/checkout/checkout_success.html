@@ -4,25 +4,64 @@
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
-            <div class="col"></div>
+            <div class="col overlay"></div>
         </div>
     </div>
 {% endblock %}
 
 {% block content %}
     <div class="container h-100">
-        <div class="row h-100">
+        <div class="row">
             <div class="col-8 col-md-7 mt-5">
-                <h1 class="display-4">
+                <h1>
                     Checkout completed!
                 </h1>
                 <p>Thank you for shoping with us!</p>
-                <div class="my-5">
+                <div>
                     <h4>
-                        your oder number: {{ order.order_number }}
+                        your order number: {{ order.order_number }}
                     </h4>
                 </div>
             </div>
+        </div>
+        <div table-responsive>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">delivery address</th>
+                    </tr>
+                </thead>
+                    <tbody>
+                        <tr>
+                            <td><p>street address 1</p></td>
+                            <td><p>{{ order.street_address1 }}</p></td>
+                        </tr>
+                        <tr>
+                            {% if order.street_address2 %}
+                                <td><p>street address 2</p></td>
+                                <td><p>{{ order.street_address2 }}</p></td>
+                            {% endif %}
+                        </tr>
+                        <tr>
+                            <td><p>Town/City</p></td>
+                            <td><p>{{ order.town_or_city }}</p></td>
+                        </tr>
+                        <tr>
+                            <td><p>Postcode</p></td>
+                            <td><p>{{ order.postcode }}</p></td>
+                        </tr>
+                        <tr>
+                            {% if order.county %}
+                                <td><p>County</p></td>
+                                <td><p>{{ order.county}}</p></td>
+                            {% endif %}
+                        </tr>
+                        <tr>
+                            <td><p>country</p></td>
+                            <td><p>{{ order.country }}</p></td>
+                        </tr>
+                    </tbody>
+            </table>
         </div>
     </div>
 {% endblock %}
