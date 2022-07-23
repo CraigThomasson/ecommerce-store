@@ -60,12 +60,12 @@ def edit_blog(request, blog_id):
         if form.is_valid():
             form.save()
             messages.success(request, F'item was updated')
-            return redirect(reverse('view_product', args=[blog.id]))
+            return redirect(reverse('blog'))
         else:
             messages.error(request, f'item was not updated please check the from is valid')
     else:
         form = Blog_form(instance=blog)
-        messages.info(request, f'You are editing {blog.titel}')
+        messages.info(request, f'You are editing {blog.title}')
 
     template = 'blog/edit_blog.html'
     context = {
@@ -83,7 +83,7 @@ def delete_blog(request, blog_id):
         messages.error(request, 'Sorry, only store admin can do that.')
         return redirect(reverse('home'))
 
-    blog = get_object_or_404(blog, pk=blog_id)
+    blog = get_object_or_404(Blog, pk=blog_id)
     blog.delete()
-    messages.success(request, 'blog deleted!')
+    messages.success(request, f'{blog.title} deleted!')
     return redirect(reverse('blog'))
