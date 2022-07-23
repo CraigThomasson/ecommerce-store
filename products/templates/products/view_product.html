@@ -34,17 +34,18 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12">
-                                <a href="{% url 'products' %}" class="btn">
-                                    <span class="icon">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </span>
-                                    <span class="text-uppercase">Keep Shopping</span>
-                                </a>
-                                <input type="submit" class="btn text-uppercase" value="Add to Bag">
-                            </div>
-                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </div>
+                    </form>
+                    <div class="col-12">
+                        <a href="{% url 'products' %}" class="btn">
+                            <span class="icon">
+                                <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="text-uppercase">Keep Shopping</span>
+                        </a>
+                        <input type="submit" class="btn text-uppercase" value="Add to Bag">
+                    </div>
+                    <input type="hidden" name="redirect_url" value="{{ request.path }}">  
                     {% if request.user.is_superuser %}
                         <small class="ml-3">
                             <a href="{% url 'edit_product' product.id %}">Edit</a> 
