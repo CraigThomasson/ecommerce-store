@@ -26,15 +26,15 @@ def add_blog(request):
         return redirect(reverse('blog'))
     
     if request.method == 'POST':
-        form = blog_form(request.POST, request.FILES)
+        form = Blog_form(request.POST, request.FILES)
         if form.is_valid():
             blog = form.save()
             messages.success(request, 'blog Added')
-            return redirect(reverse('blog', args=[blog.id]))
+            return redirect(reverse('blog',))
         else:
             messages.error(request, 'The blog was not added. Please check the form is valid.')
     else:
-        form = blog_form()
+        form = Blog_form()
         
     template = 'blog/add_blog.html'
     context = {
