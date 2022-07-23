@@ -5,6 +5,9 @@ from .models import Order, OrderLineItem
 
 
 class OrderLineItemAdminInline(admin.TabularInline):
+    """
+    sets up admin for prderline item
+    """
     model = OrderLineItem
     readonly_fields = ('lineitem_total',)
 
@@ -12,6 +15,9 @@ class OrderLineItemAdminInline(admin.TabularInline):
 # code taken from boutique ado project.
 
 class OrderAdmin(admin.ModelAdmin):
+    """
+    sets up admin for order modle
+    """
     inlines = (OrderLineItemAdminInline,)
 
     readonly_fields = ('order_number', 'date',
@@ -32,4 +38,3 @@ class OrderAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Order, OrderAdmin)
-

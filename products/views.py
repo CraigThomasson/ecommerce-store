@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
-from .models import Product
 from django.contrib.auth.decorators import login_required
-from .forms import Product_form
+from .models import Product
+from .forms import ProductForm
 
 
 def all_products(request):
@@ -63,18 +63,21 @@ def add_product(request):
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only site admin can do that.')
         return redirect(reverse('home'))
-    
+
     if request.method == 'POST':
-        form = Product_form(request.POST, request.FILES)
+        form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             product = form.save()
             messages.success(request, 'Product Added')
             return redirect(reverse('view_product', args=[product.id]))
         else:
-            messages.error(request, 'The producted was not added. Please check the form is valid.')
+            messages.error(
+                request, 'The producted was not added. \
+                     Please check the form is valid.'
+            )
     else:
-        form = Product_form()
-        
+        form = ProductForm()
+
     template = 'products/add_product.html'
     context = {
         'form': form,
@@ -97,15 +100,17 @@ def edit_product(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
 
     if request.method == 'POST':
-        form = Product_form(request.POST, request.FILES, instance=product)
+        form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
             form.save()
-            messages.success(request, F'item was updated')
+            messages.success(request, 'item was updated')
             return redirect(reverse('view_product', args=[product.id]))
         else:
-            messages.error(request, f'item was not updated please check the from is valid')
+            messages.error(
+                request, 'item was not updated please check the from is valid'
+            )
     else:
-        form = Product_form(instance=product)
+        form = ProductForm(instance=product)
         messages.info(request, f'You are editing {product.name}')
 
     template = 'products/edit_product.html'

@@ -1,7 +1,8 @@
 from django import forms
 from .models import Blog
 
-class Blog_form(forms.ModelForm):
+
+class BlogForm(forms.ModelForm):
     """
     form for managing crud for blogs
     """

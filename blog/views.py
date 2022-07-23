@@ -1,11 +1,14 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
-from .models import Blog
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .forms import Blog_form
+from .models import Blog
+from .forms import BlogForm
+
 
 def blog(request):
-    
+    """
+    view for blod page
+    """
     blog = Blog.objects.all()
 
     template = 'blog/blog.html'
@@ -14,6 +17,7 @@ def blog(request):
     }
 
     return render(request, template, context)
+
 
 @login_required
 def add_blog(request):
@@ -24,18 +28,21 @@ def add_blog(request):
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only site admin can do that.')
         return redirect(reverse('blog'))
-    
+
     if request.method == 'POST':
-        form = Blog_form(request.POST, request.FILES)
+        form = BlogForm(request.POST, request.FILES)
         if form.is_valid():
-            blog = form.save()
+            form.save()
             messages.success(request, 'blog Added')
             return redirect(reverse('blog',))
         else:
-            messages.error(request, 'The blog was not added. Please check the form is valid.')
+            messages.error(
+                request,
+                'The blog was not added. Please check the form is valid.'
+            )
     else:
-        form = Blog_form()
-        
+        form = BlogForm()
+
     template = 'blog/add_blog.html'
     context = {
         'form': form,
@@ -56,15 +63,15 @@ def edit_blog(request, blog_id):
     blog = get_object_or_404(Blog, pk=blog_id)
 
     if request.method == 'POST':
-        form = Blog_form(request.POST, request.FILES, instance=blog)
+        form = BlogForm(request.POST, request.FILES, instance=blog)
         if form.is_valid():
             form.save()
-            messages.success(request, F'item was updated')
+            messages.success(request, 'item was updated')
             return redirect(reverse('blog'))
         else:
-            messages.error(request, f'item was not updated please check the from is valid')
+            messages.error(request, 'item was not updated please check the from is valid')
     else:
-        form = Blog_form(instance=blog)
+        form = BlogForm(instance=blog)
         messages.info(request, f'You are editing {blog.title}')
 
     template = 'blog/edit_blog.html'

@@ -1,6 +1,8 @@
-from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
-from products.models import Product
+from django.shortcuts import (
+    render, redirect, reverse, HttpResponse, get_object_or_404
+)
 from django.contrib import messages
+from products.models import Product
 
 
 def bag_view(request):
@@ -15,10 +17,13 @@ def add_to_bag(request, item_id):
 
     product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
-    redirect_url = request.POST.get('redirect_url')  # gets request.path from hidden file in product details view
-    bag = request.session.get('bag', {})  # access the saved session in the browser to get the saved session
+    # gets request.path from hidden file in product details view
+    redirect_url = request.POST.get('redirect_url')
+    # access the saved session in the browser to get the saved session
+    bag = request.session.get('bag', {})
 
-    # check if item is already in list and ads quantitsy to current item, and item if not in list
+    # check if item is already in list and ads quantitsy to current item,
+    # and item if not in list
     if item_id in list(bag.keys()):
         bag[item_id] += quantity
         messages.success(request, f'updated {product.name} quantity in bag')
@@ -31,14 +36,18 @@ def add_to_bag(request, item_id):
 
 
 def update_bag(request, item_id):
-    """ update the quantity of the specified product to the shopping bag in the view bag page """
+    """
+    update the quantity of the specified
+    product to the shopping bag in the view bag page
+    """
 
     product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
-    bag = request.session.get('bag', {})  # access the saved session in the browser to get the saved session
+    # access the saved session in the browser to get the saved session
+    bag = request.session.get('bag', {})
 
-    # check if item is already in list and ads quantitsy to current item, and item if not in list
-
+    # check if item is already in list and ads quantitsy to current item,
+    #  and item if not in list
     if quantity > 0:
         bag[item_id] = quantity
         messages.success(request, f'updated {product.name} quantity in bag')
@@ -56,7 +65,8 @@ def remove_bag_Item(request, item_id):
     product = get_object_or_404(Product, pk=item_id)
 
     try:
-        bag = request.session.get('bag', {})  # access the saved session in the browser to get the saved session
+        # access the saved session in the browser to get the saved session
+        bag = request.session.get('bag', {})
 
         bag.pop(item_id)
         messages.success(request, f'removed {product.name} from bag')
