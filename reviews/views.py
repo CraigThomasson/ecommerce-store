@@ -7,7 +7,7 @@ from .forms import ReviewForm
 
 
 @login_required
-def add_review(request):
+def add_review(request, product_id):
     """
     view to add reviews to the db
     """
@@ -19,13 +19,12 @@ def add_review(request):
     if request.method == 'POST':
     
         product = get_object_or_404(Product, pk=product_id)
-        form = ReviewForm(initial={
-            'product': product,
-        })
-        form.instance.posted_by = self.request.user
-
+        print(product)        
         form = ReviewForm(request.POST, request.FILES)
         if form.is_valid():
+            form.save(commit=False)
+            form.instance.posted_by = request.user
+            form.instance.product = product
             form.save()
             messages.success(request, 'review Added')
             return redirect(reverse('products',))
