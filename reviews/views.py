@@ -7,7 +7,7 @@ from .forms import ReviewForm
 
 
 @login_required
-def add_review(request, product_id):
+def add_review(request):
     """
     view to add reviews to the db
     """
@@ -37,7 +37,7 @@ def add_review(request, product_id):
     else:
         form = ReviewForm()
 
-    template = 'review/add_review.html'
+    template = 'reviews/add_reviews.html'
     context = {
         'form': form,
     }
