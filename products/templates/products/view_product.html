@@ -14,7 +14,7 @@
    <div class="container">
         <div class="row">
             <div class="col">
-                <div class="card card_main"  style="width: 18rem;">
+                <div class="card card_main"  style="width: 30rem;">
                     {% if "placeholder" in product.image.url %}
                         <img src="{% static 'images/defualt-product-img.PNG' %}" class="card-img-top card-image" alt="place holder image">  
                     {% else %}
@@ -42,7 +42,7 @@
                                 </span>
                                 <span class="text-uppercase">Keep Shopping</span>
                             </a>
-                            <input type="submit" class="btn text-uppercase" value="Add to Bag">
+                                <input type="submit" class="btn text-uppercase" value="Add to Bag">
                         </div>
                         <input type="hidden" name="redirect_url" value="{{ request.path }}"> 
                     </form>
@@ -55,5 +55,39 @@
                 </div>
             </div>
         </div>
-   </div>
+        <!-- ---------------------------------------review section -->
+        <div class="card bg-white text-center" style="width: 30rem;">
+            <h2>reviews</h2>
+            <div>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'add_review' product_id %}"><button type="button" class="btn btn-primary">add review</button></a>
+                {% else %}_id 
+                    <p>login in to add a review <a class="nav-link" href="{% url 'login' %}">here!</a></p>
+                {%endif%}
+            </div>
+        </div>
+       
+        <div class="row">
+            {% for review in reviews %}
+                {% if review.product.id == product.id %}
+                    <div class="col">
+                        <div class="card mb-5" style="width: 30rem;">
+                            <div class="card-header">
+                                <h1>{{review.title|striptags}}</h1>
+                            </div>
+                            <p>reviewd by:{{review.posted_by|striptags}}</p>
+                            <p>body: {{review.body|striptags}}</p>
+                            {% if user.id == review.created_by.id %}
+                                <div class="container">
+                                    <span><a href="{% url 'edit_review' review.id %}"><button type="button" class="btn btn-primary col">Edit Review</button></a></span>
+                                    <span><a href="{% url 'delete_review' review.id %}"><button type="button" class="btn btn-danger col">Delete</button></a></span>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    </div>
 {% endblock %}
