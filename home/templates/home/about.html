@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container h-100">
+        <div class="row h-100">
+            <div class="col-8 col-md-7 mt-5">
+                <h1 class="display-4 home-pg-text">
+                    About us and what we stand for
+                </h1>
+                <div class="my-5">
+                    <h4>
+                        <a href="{% url 'products' %}" class="home-shop-btn btn btn-lg rounded-0 text-uppercase py-3">Shop Now</a>
+                    </h4>
+                </div>
+            </div>
+            <div class="col-8 col-md-7 mt-4 card">
+                <article>
+                    <h3 class="home-pg-text card-title">
+                        Get to know us.
+                    </h3>
+                    <div class="my-5 card-body">
+                        <section>
+                            <h4>A clear conscience.</h4>
+                            <p>Here at CandleKeep we put the <strong>environment</strong> and <strong>animal welfare</strong> fist.
+                                This means you can shop with us with a clear conscience.
+                                All our products are <strong>vegan</strong> and produced with a <strong>net neutral carbon footprint</strong> as a minimum standard.
+                            </p>
+                        </section>
+                        <section>
+                            <h4>Top quality.</h4>
+                            <p>Our products are not just <strong>guild free</strong> there also <strong>top quality</strong>.
+                            The candle we produce have a long smooth burn and a steady glow.
+                            The <strong>scented candles</strong>  in our range have a subtle scent that is not over baring and will complement any environment you're in.
+                            </p>
+                        </section>
+                        <section>
+                            <h4>All natural</h4>
+                            <p>Because our products are made of <strong>natural</strong> <strong>plant-based</strong> ingredients you can dispose of them with ease.
+                            All our candles our <strong>biodegradable</strong> and our glass, Woodend and bamboo candle holder can all be
+                            <strong>re-cycled</strong> or even <strong>up-cycled!</strong></p> 
+                            <p>check out the wax base we use <a href="https://scentssoapsandcandles.co.uk/product/ecococo-container-blend-wax/" target="_blank" rel="noopener" aria-label="takes you to product page for the wax we use(this opens in a new page)">here</a></p>
+                        </section>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+{% endblock %}
