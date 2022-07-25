@@ -1,7 +1,14 @@
 {% extends "base.html" %}
 {% load static %}
 
-
+{% block page_header %}
+    <div class="overlay"></div>
+    <div class="container ">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
 
 {% block content %}
     <div class="container">
@@ -20,8 +27,8 @@
                     {% csrf_token %}
                     {{ form | crispy }}
                     <div>
-                        <a class="btn btn-black rounded-0" href="{% url 'products' %}">Cancel</a>
-                        <button class="btn btn-black rounded-0" type="submit">Add Product</button>
+                        <a class="btn btn-black rounded-3" href="{% url 'products' %}">Cancel</a>
+                        <button class="btn btn-black rounded-3" type="submit">Add Product</button>
                     </div>
                 </form>
             </div>
