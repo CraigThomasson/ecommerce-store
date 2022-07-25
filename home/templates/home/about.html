@@ -48,6 +48,18 @@
                             All our candles our <strong>biodegradable</strong> and our glass, Woodend and bamboo candle holder can all be
                             <strong>re-cycled</strong> or even <strong>up-cycled!</strong></p> 
                             <p>check out the wax base we use <a href="https://scentssoapsandcandles.co.uk/product/ecococo-container-blend-wax/" target="_blank" rel="noopener" aria-label="takes you to product page for the wax we use(this opens in a new page)">here</a></p>
+                            <p>For more info check out what our friends at <a href="https://www.peta.org/living/humane-home/vegan-candles/" target="_blank" rel="noopener" aria-label="takes you to an artical by peta (this opens in a new page)">PETA</a> have to say</p>
+                        </section>
+                        <section>
+                            <h4>News Letter</h4>
+                            <p>For Regular up dates sign up to our news letter bellow!</p>
+                            <form method="POST" action="{% url 'about' %}" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                {{ form | crispy }}
+                                <div>
+                                    <button class="btn btn-black rounded-3" type="submit">Sign up!</button>
+                                </div>
+                            </form>
                         </section>
                     </div>
                 </article>

@@ -84,6 +84,13 @@ body {
     position: center center;
 }
 
+/* ---------------------------------buttons */
+
+.btn-black {
+    color: white;
+    background-color: black;
+}
+
 
 /* --------------------------toast */
 
