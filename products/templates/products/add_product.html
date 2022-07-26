@@ -2,8 +2,7 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="overlay"></div>
-    <div class="container ">
+    <div class="container">
         <div class="row">
             <div class="col"></div>
         </div>
@@ -11,6 +10,7 @@
 {% endblock %}
 
 {% block content %}
+    <div class="overlay"></div>
     <div class="container">
         <div class="row">
             <div class="col">
@@ -19,18 +19,18 @@
                 <hr>
             </div>
         </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <form method="POST" action="{% url 'add_product' %}" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {{ form | crispy }}
-                    <div>
-                        <a class="btn btn-black rounded-3" href="{% url 'products' %}">Cancel</a>
-                        <button class="btn btn-black rounded-3" type="submit">Add Product</button>
-                    </div>
-                </form>
+        <div>
+            <div class="row">
+                <div class="col">
+                    <form method="POST" action="{% url 'add_product' %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form | crispy }}
+                        <div>
+                            <a class="btn btn-black rounded-3" href="{% url 'products' %}">Cancel</a>
+                            <button class="btn btn-black rounded-3" type="submit">Add Product</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

@@ -11,10 +11,11 @@
 {% endblock %}
 
 {% block content %}
-   <div class="container">
+    <div class="overlay"></div>
+    <div class="container">
         <div class="row">
             <div class="col">
-                <div class="card card_main"  style="width: 30rem;">
+                <div class="card card_main w-50">
                     {% if "placeholder" in product.image.url %}
                         <img src="{% static 'images/defualt-product-img.PNG' %}" class="card-img-top card-image" alt="place holder image">  
                     {% else %}
@@ -56,7 +57,8 @@
             </div>
         </div>
         <!-- ---------------------------------------review section -->
-        <div class="card bg-white text-center" style="width: 30rem;">
+        <hr>
+        <div class="text-center mb-2">
             <h2>reviews</h2>
             <div>
                 {% if user.is_authenticated %}
@@ -66,12 +68,12 @@
                 {%endif%}
             </div>
         </div>
-       
+        <hr>
         <div class="row">
             {% for review in reviews %}
                 {% if review.product.id == product.id %}
-                    <div class="col">
-                        <div class="card mb-5" style="width: 30rem;">
+                    <div class="col-12">
+                        <div class="card mb-7 w-100">
                             <div class="card-header">
                                 <h1>{{review.title|striptags}}</h1>
                             </div>
