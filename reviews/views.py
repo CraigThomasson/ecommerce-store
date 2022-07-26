@@ -89,11 +89,7 @@ def delete_review(request, review_id):
         messages.error(request, 'Sorry, only store admin can do that.')
         return redirect(reverse('products'))
 
-    review = get_object_or_404(Review, pk=review_id)
+    review = get_object_or_404(Reviews, pk=review_id)
     review.delete()
     messages.success(request, f'{review.title} deleted!')
     return redirect(reverse('products'))
-
-
-
- 
