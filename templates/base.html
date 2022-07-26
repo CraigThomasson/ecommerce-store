@@ -36,7 +36,7 @@
   </head>
   <body>
     <!----------------------------------------------------------------------------------------- main site header -->
-    <header class="container-fluid fixed_top bg-white">
+    <header class="container-fluid fixed_top bg-white text-center">
       <div class="row">
         <a href="{% url 'home' %}">
           <div class="col-12 col-lg-4 my-auto text-center text-lg-left"><span class="title-font-a">Candle</span><span class="title-font-b">Keep</span></div>
@@ -49,15 +49,15 @@
                 <input class="form-control" name="q" type="text" placeholder="Search...">
               </div>
               <div class="input-group-append">
-                <button type="button" class="btn btn-primary">
+                <button type="button" class="btn btn-black">
                   <i class="fas fa-search"></i>
                 </button>
               </div>
             </div>
           </form>
         </div>
-        <div class="col-12 col-lg-4 my-auto">
           <!--------------------------------------------------------- user profile navigation -->
+        <div class="col-12 col-lg-4 my-auto text-right">
           <ul class="list-inline list-unstyled">
             <li class="list-inline-item dropdown">
               <a href="#" class="nav-link" id="user-choices" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -80,7 +80,7 @@
             <!------------------------------------------------------- shopping bag link -->
             <!-- code taken from code institue boutique ado project -->
             <li class="list-inline-item">
-              <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'bag_view' %}">
+              <a class="{% if grand_total %}text-black font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'bag_view' %}">
                   <div class="text-center">
                     <div><i class="fas fa-shopping-bag fa-lg"></i></div>
                     <p class="my-0">
