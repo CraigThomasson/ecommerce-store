@@ -26,28 +26,28 @@
         </div>
         <div class="row">
             <div class="col-12 col-lg-6 mb-5">
-                <p class="text-muted">Order Summary</p>
+                <p>Order Summary</p>
                 <div class="row">
                     <div class="col-7 offset-2">
-                        <p class="mb-1 mt-0 small text-muted">Item</p>
+                        <p class="mb-1 mt-0 small">Item</p>
                     </div>
                     <div class="col-3 text-right">
-                        <p class="mb-1 mt-0 small text-muted">Subtotal</p>
+                        <p class="mb-1 mt-0 small">Subtotal</p>
                     </div>
                 </div>
                 {% for item in bag_items %}
                     <div class="row">
                         <div class="col-2 mb-1">
                             <a href="{% url 'view_product' item.product.id %}">
-                                <img src="{{ item.product.image.url }}" class="img-fluid" alt="image of {{item.product.name|striptags}}">
+                                <img src="{{ item.product.image.url }}" class="img-fluid checkout-img" alt="image of {{item.product.name|striptags}}">
                             </a>
                         </div>
                         <div class="col-7">
                             <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                            <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
+                            <p class="my-0 small">Qty: {{ item.quantity }}</p>
                         </div>
                         <div class="col-3 text-right">
-                            <p class="my-0 small text-muted">£{{ item.product.price | calc_subtotal:item.quantity }}</p>
+                            <p class="my-0 small">£{{ item.product.price | calc_subtotal:item.quantity }}</p>
                         </div>
                     </div>
                 {% endfor %}
@@ -66,7 +66,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col ml-lg-5">
+                <div class="col ml-lg-5 checkout-form">
                     <form method="POST" action="{% url 'checkout' %}" id="payment-form" enctype="multipart/form-data">
                     {% csrf_token %}
                     <fieldset>
@@ -87,7 +87,7 @@
                     </fieldset>
                     </fieldset>
                     <fieldset class="px-3">
-                        <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
+                        <legend class="fieldset-label text-clear px-2 w-auto">Payment</legend>
                         <!-- A Stripe card element will go here -->
                         <div class="mb-3" id="card-element"></div>
                         <!-- Used to display form errors -->

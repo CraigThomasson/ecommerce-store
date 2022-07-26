@@ -32,7 +32,7 @@ a, a:hover, a:focus, a:active {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(217,200,191,06);
+    background-color: rgba(217,200,191,0.6);
     z-index: -1; 
   }
 
@@ -62,7 +62,7 @@ a, a:hover, a:focus, a:active {
 
 .text-clear {
     color: black;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 /* ---------------------------------header */
@@ -170,9 +170,17 @@ footer {
         display: none;
       }
 
-      .hidden {
-        display: none;
-      }
+    .hidden {
+    display: none;
     }
+    body {
+        background: url('/media/bg-img-sm.jpg') no-repeat center center fixed;
+    }
+    .overlay {
+        background-color: rgba(217,200,191,0.9);
+      }
+    .checkout-img {
+        display: none;
+    }
+}
 
-    

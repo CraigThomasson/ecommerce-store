@@ -28,11 +28,15 @@
 .fieldset-label {
     position: relative;
     right: .5rem;
-    color: red;
+    color: black;
 }
 
 #payment-form .form-control,
 #card-element {
     color: #000;
     border: 1px solid #000;
+}
+
+.checkout-form {
+  margin-left: 6px;
 }
