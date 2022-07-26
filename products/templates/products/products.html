@@ -11,14 +11,14 @@
 
 {% block content %}
     <div class="overlay"></div>
-   <div class="container text-center">
+   <div class="container text-center w-100">
         <h1>Products</h1>
         <div class="row">
             {% if products %}
                 {% for product in products %}
                     <div class="col">
                         <a href="{% url 'view_product' product.id %}">
-                            <div class="card card-main"  style="width: 18rem;">
+                            <div class="card card-main">
                                 {% if "placeholder" in product.image.url %}
                                     <img src="{% static 'images/defualt-product-img.PNG' %}" class="card-img-top card-image" alt="place holder image">  
                                 {% else %}

@@ -93,6 +93,7 @@ a, a:hover, a:focus, a:active {
 .card-main {
     height: 484px;
     margin-bottom: 5px;
+    width: 18rem;
 }
 
 .card-image {
@@ -120,7 +121,7 @@ a, a:hover, a:focus, a:active {
 .toast_container {
     position: relative;
     min-height: 200px;
-    z-index: 99999;
+    z-index: 9999999;
 }
 
 .toast_right{
@@ -181,6 +182,19 @@ footer {
       }
     .checkout-img {
         display: none;
+    }
+}
+
+@media (max-width: 991px) {
+    .menu-box{
+        text-align: left!important;
+        margin-top: 2px;
+    }
+}
+
+@media (min-width: 991px) {
+    .toast_right{
+        top: 90px;
     }
 }
 
