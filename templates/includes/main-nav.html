@@ -4,17 +4,11 @@
             <a class="nav-link" href="{% url 'products' %}">All Candles</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Scented</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Unscented</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{% url 'about' %}">about</a>
+            <a class="nav-link" href="{% url 'about' %}">About</a>
         </li>
         {% if request.user|has_group:"site_admin" %}
         <li class="nav-item">
-            <a class="nav-link" href="{% url 'add_product' %}">add product</a>
+            <a class="nav-link" href="{% url 'add_product' %}">Add Product</a>
         </li>
         {% endif %}
     </ul>

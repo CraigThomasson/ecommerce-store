@@ -22,7 +22,7 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col">
+            <div class="col mb-3">
                 <form method="POST" action="{% url 'edit_product' product.id %}" enctype="multipart/form-data ">
                     {% csrf_token %}
                     {{ form | crispy }}

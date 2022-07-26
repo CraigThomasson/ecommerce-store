@@ -11,6 +11,11 @@ body {
     color: black;
 }
 
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
 /* covers background image in body */
 .overlay {
     position: fixed; /* Sits on top of the page content */
