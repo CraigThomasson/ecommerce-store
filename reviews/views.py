@@ -49,11 +49,14 @@ def edit_review(request, review_id):
     """
     view to edit review in the db
     """
+
+    review = get_object_or_404(Reviews, pk=review_id)
+
     # checks if user has permition to add products
-    if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only site admin can do that.')
-        return redirect(reverse('home'))
-    review = get_object_or_404(Review, pk=review_id)
+    if request.user != review.posted_by:
+        messages.error(request, 'Sorry, only the user the created this review can do that.')
+        return redirect(reverse('products'))
+    review = get_object_or_404(Reviews, pk=review_id)
 
     if request.method == 'POST':
         form = ReviewForm(request.POST, request.FILES, instance=review)
@@ -70,7 +73,7 @@ def edit_review(request, review_id):
         form = ReviewForm(instance=review)
         messages.info(request, f'You are editing {review.title}')
 
-    template = 'blog/edit_blog.html'
+    template = 'reviews/edit_reviews.html'
     context = {
         'form': form,
         'review': review,

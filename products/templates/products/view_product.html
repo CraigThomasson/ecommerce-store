@@ -82,7 +82,7 @@
                             </div>
                             <p>reviewd by:{{review.posted_by|striptags}}</p>
                             <p>body: {{review.body|striptags}}</p>
-                            {% if user == review.created_by %}
+                            {% if user == review.posted_by %}
                                 <div class="container">
                                     <span><a href="{% url 'edit_review' review.id %}"><button type="button" class="btn btn-primary col">Edit Review</button></a></span>
                                     <span><a href="{% url 'delete_review' review.id %}"><button type="button" class="btn btn-danger col">Delete</button></a></span>
