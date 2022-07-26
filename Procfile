@@ -1,0 +1,1 @@
+web: gunicorn candle_store.wsgi:application
