@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-nnntz1llcv+(@a_2h0%7^exhm53k^n=v*!bly9m_%f^ry-lce9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['candlekeep-pp5.heroku.com', 'localhost']
+ALLOWED_HOSTS = ['candlekeep-pp5.herokuapp.com', 'localhost']
 
 
 # Application definition
