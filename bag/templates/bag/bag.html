@@ -23,7 +23,7 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">img</th>
+                                    <th scope="col" class="hidden">img</th>
                                     <th scope="col">Product name</th>
                                     <th scope="col">Price</th>
                                     <th scope="col">Qty</th>
@@ -45,6 +45,8 @@
                                 </tbody>
                             {% endfor %}
                             <tr>
+                                <!-- blank td prevens the second td form being removed when the image row is removed with media queries -->
+                                <td></td>
                                 <td colspan="5" class="pt-5 text-right">
                                     <h6><strong>Bag Total: £{{ total|floatformat:2 }}</strong></h6>
                                     <h6>Delivery: £{{ delivery|floatformat:2 }}</h6>

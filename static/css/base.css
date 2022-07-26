@@ -1,5 +1,7 @@
 /* html and body bassed on code institue boutique ado project  */
 
+/* ------------------------------------genral stylings */
+
 html {
     height: 100%;
 }
@@ -30,7 +32,7 @@ a, a:hover, a:focus, a:active {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(217,200,191,255);
+    background-color: rgba(217,200,191,06);
     z-index: -1; 
   }
 
@@ -43,7 +45,7 @@ a, a:hover, a:focus, a:active {
     width: 1.5rem;
 }
 
-/* ---------------------------------fonts */
+/* ---------------------------------fonts and text*/
 
 .title-font-a {
     font-family: 'Montserrat Alternates', sans-serif;
@@ -56,6 +58,11 @@ a, a:hover, a:focus, a:active {
 .title-font-a, .title-font-b {
     font-size: 300%;
     color: #2a0406;
+}
+
+.text-clear {
+    color: black;
+    font-weight: 400;
 }
 
 /* ---------------------------------header */
@@ -144,3 +151,28 @@ footer {
     height: 50px;
     margin-top: 5px;
   }
+
+#footer {
+    background-color: rgba(0, 0, 1, 0.6);
+}
+
+/* -------------------------- media queries*/
+
+@media (max-width: 374px) {
+    .home-pg-text{
+      font-size: 180%;
+      font-weight: 600;
+    }
+  }
+
+@media (max-width: 769px) {
+    td:nth-child(1) {
+        display: none;
+      }
+
+      .hidden {
+        display: none;
+      }
+    }
+
+    
