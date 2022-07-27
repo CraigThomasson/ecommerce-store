@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:/accounts/
+Disallow:/bag/
+Sitemap: https://https://candlekeep-pp5.herokuapp.com/sitemap.xml
