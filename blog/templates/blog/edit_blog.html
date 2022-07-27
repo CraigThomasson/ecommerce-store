@@ -13,14 +13,14 @@
         </div>
     </div>
     <div class="container">
-        <div class="row">
+        <div class="row overlay-white p-2">
             <div class="col">
                 <form method="POST" action="{% url 'edit_blog' blog.id %}" enctype="multipart/form-data ">
                     {% csrf_token %}
                     {{ form | crispy }}
                     <div>
-                        <a class="btn btn-black rounded-0" href="{% url 'blog' %}">Cancel</a>
-                        <button class="btn btn-black rounded-0" type="submit">Edit Product</button>
+                        <a class="btn btn-black rounded-3" href="{% url 'blog' %}">Cancel</a>
+                        <button class="btn btn-black rounded-3" type="submit">Edit Product</button>
                     </div>
                 </form>
             </div>
