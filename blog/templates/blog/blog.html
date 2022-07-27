@@ -30,7 +30,7 @@
                         {% for blog in blog %}
                         <div class="card w-100">
                             <h2 class="card-title">{{ blog.title }}</h2>
-                            <p class="card-body">{{blog.body}}</p>
+                            <p class="card-body text-left">{{blog.body}}</p>
                             <div class="card-footer">
                                 <p> {{ blog.added_on }}</p>
                             {% if request.user|has_group:"site_admin" %}
