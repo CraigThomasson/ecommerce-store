@@ -80,8 +80,9 @@
                             <div class="card-header">
                                 <h1>{{review.title|striptags}}</h1>
                             </div>
+                            <p>{{review.body|striptags}}</p>
+                            <div class="hr"></div>
                             <p>reviewd by:{{review.posted_by|striptags}}</p>
-                            <p>body: {{review.body|striptags}}</p>
                             {% if user == review.posted_by %}
                                 <div class="container">
                                     <span><a href="{% url 'edit_review' review.id %}"><button type="button" class="btn btn-black rounded-3 col w-25">Edit Review</button></a></span>
