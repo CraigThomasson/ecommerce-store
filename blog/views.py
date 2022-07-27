@@ -69,7 +69,9 @@ def edit_blog(request, blog_id):
             messages.success(request, 'item was updated')
             return redirect(reverse('blog'))
         else:
-            messages.error(request, 'item was not updated please check the from is valid')
+            messages.error(
+                request, 'item was not updated please check the from is valid'
+            )
     else:
         form = BlogForm(instance=blog)
         messages.info(request, f'You are editing {blog.title}')
