@@ -3,27 +3,26 @@
 
 {% block content %}
     <div class="container">
-        <div class="row">
+        <div class="row text-center">
             <div class="col">
                 <hr>
-                <h2>Add blog</h2>
+                <h2>Add Blog</h2>
                 <hr>
             </div>
         </div>
     </div>
     <div class="container">
-        <div class="row">
+        <div class="row overlay-white p-2">
             <div class="col">
                 <form method="POST" action="{% url 'add_blog' %}" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form | crispy }}
                     <div>
-                        <a class="btn btn-black rounded-0" href="{% url 'blog' %}">Cancel</a>
-                        <button class="btn btn-black rounded-0" type="submit">Add blog</button>
+                        <a class="btn btn-black rounded-3" href="{% url 'blog' %}">Cancel</a>
+                        <button class="btn btn-black rounded-3" type="submit">Add blog</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-
 {% endblock %}
