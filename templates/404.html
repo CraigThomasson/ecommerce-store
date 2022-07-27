@@ -1,0 +1,22 @@
+{% block content %}
+    <div class="overlay"></div>
+    <div class="container h-100">
+        <div class="row h-100">
+            <div class="col-12 col-md-7 mt-5">
+                <div class="txt-overlay">
+                    <h1 class="display-4 home-pg-text">
+                        ERROR 404
+                    </h1>
+                    <h2 class="display-4 home-pg-text">
+                        Sorry, this page was not found. Click below to go home.
+                    </h2>
+                </div>
+                <div class="my-5">
+                    <h4>
+                        <a href="{% url 'products' %}" class="home-shop-btn btn btn-lg rounded-3 text-uppercase py-3">back to home page</a>
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
