@@ -2,14 +2,17 @@
 <div class="collapse navbar-collapse" id="main-nav">
     <ul class="navbar-nav mr-auto w-auto mx-auto">
         <li class="nav-item">
-            <a class="nav-link" href="{% url 'products' %}">All Candles</a>
+            <a class="nav-link" href="{% url 'products' %}" aria-label="links to a page displaying all candles">All Candles</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{% url 'about' %}">About</a>
+            <a class="nav-link" href="{% url 'about' %}" aria-label="links to an about section about our candles and ethos">About</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'blog' %}" aria-label="links to an about section about our candles and ethos">Blog</a>
         </li>
         {% if request.user|has_group:"site_admin" %}
         <li class="nav-item">
-            <a class="nav-link" href="{% url 'add_product' %}">Add Product</a>
+            <a class="nav-link" href="{% url 'add_product' %}" aria-label="lings to a page to add candles to the page">Add Candles</a>
         </li>
         {% endif %}
     </ul>

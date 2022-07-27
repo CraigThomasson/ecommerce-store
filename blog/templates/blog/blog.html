@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-container">
+    <div class="container">
         <div class="row">
             <div class="col"></div>
         </div>
@@ -10,15 +10,16 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container h-100">
+    <div class="overlay"></div>
+    <div class="container h-100 text-center">
         <div class="row h-100">
-            <div class="col-8 col-md-7 mt-5">
-                <h1 class="display-4 home-pg-text">
-                    blog
+            <div class="col mt-5">
+                <h1 class="text-clear home-pg-text text-center">
+                    Blog
                 </h1>
                 <div>
                     <a class="btn rounded-0" href="{% url 'add_blog' %}">
-                        <button class="btn rounded-0" type="button">Add a blog</button>
+                        <button class="btn rounded-3 btn-black" type="button">Add a blog</button>
                     </a>
                 </div>
                 <div class="container">

@@ -25,7 +25,7 @@ def add_blog(request):
     view to add products to the db
     """
     # checks if user has permition to add products
-    if not request.user.is_superuser:
+    if not request.user.groups.filter(name='site_admin').exists():
         messages.error(request, 'Sorry, only site admin can do that.')
         return redirect(reverse('blog'))
 
@@ -57,7 +57,7 @@ def edit_blog(request, blog_id):
     view to edit blog in the db
     """
     # checks if user has permition to add products
-    if not request.user.is_superuser:
+    if not request.user.groups.filter(name='site_admin').exists():
         messages.error(request, 'Sorry, only site admin can do that.')
         return redirect(reverse('home'))
     blog = get_object_or_404(Blog, pk=blog_id)
@@ -86,7 +86,7 @@ def edit_blog(request, blog_id):
 @login_required
 def delete_blog(request, blog_id):
     """ Delete a blog from the store """
-    if not request.user.is_superuser:
+    if not request.user.groups.filter(name='site_admin').exists():
         messages.error(request, 'Sorry, only store admin can do that.')
         return redirect(reverse('home'))
 

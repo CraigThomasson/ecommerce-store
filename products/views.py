@@ -61,8 +61,8 @@ def add_product(request):
     """
     view to add products to the db
     """
-    # checks if user has permition to add products
-    if not request.user.is_superuser:
+    # checks if user has permition to add products user that are not loged in will go to signin page
+    if not request.user.groups.filter(name='site_admin').exists():
         messages.error(request, 'Sorry, only site admin can do that.')
         return redirect(reverse('home'))
 
@@ -94,7 +94,7 @@ def edit_product(request, product_id):
     view to eddit products in the db
     """
     # checks if user has permition to add products
-    if not request.user.is_superuser:
+    if not request.user.groups.filter(name='site_admin').exists():
         messages.error(request, 'Sorry, only site admin can do that.')
         print(request.user.groups)
         print('access denined')
@@ -127,7 +127,7 @@ def edit_product(request, product_id):
 @login_required
 def delete_product(request, product_id):
     """ Delete a product from the store """
-    if not request.user.is_superuser:
+    if not request.user.groups.filter(name='site_admin').exists():
         messages.error(request, 'Sorry, only store admin can do that.')
         return redirect(reverse('home'))
 
