@@ -115,6 +115,10 @@ a, a:hover, a:focus, a:active {
     background-color: black;
 }
 
+.btn {
+    margin: 1px;
+}
+
 /* --------------------------------------page breaks */
 
 .hr {
@@ -203,3 +207,14 @@ footer {
     }
 }
 
+@media (max-width: 500px) {
+    .btn{
+        font-size: small;
+    }
+}
+
+@media (max-width: 767px) {
+    .w-reset{
+        width: 100%!important;
+    }
+}
