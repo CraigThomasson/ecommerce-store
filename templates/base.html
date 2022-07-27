@@ -66,15 +66,10 @@
           <ul class="list-inline list-unstyled">
             <li class="list-inline-item dropdown">
               <a href="#" class="nav-link" id="user-choices" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <p>Account</p>
+                <p>{% if request.user.is_authenticated %}{{request.user.username}}'s Account{% else %}Login{% endif %}</p>
               </a>
               <div class="dropdown-menu" aria-labelledby="user-choices">
                 {% if request.user.is_authenticated %}
-                  {% if request.user.is_admin %}
-                    <a href="#" class="dropdown-item">Manage Site</a>
-                    <div class="dropdown-divider"></div>
-                  {% endif %}
-                  <a href="#" class="dropdown-item">My Profile</a>
                   <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                 {% else %}
                   <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
