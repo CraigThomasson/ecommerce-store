@@ -39,7 +39,12 @@
                     <div class="row">
                         <div class="col-2 mb-1">
                             <a href="{% url 'view_product' item.product.id %}">
-                                <img src="{{ item.product.image.url }}" class="img-fluid checkout-img" alt="image of {{item.product.name|striptags}}">
+                                {% if "placeholder" in item.product.image.url %}
+                                    <img src="{% static 'images/defualt-product-img.PNG' %}" class="checkout-img img-fluid" alt="place holder image">  
+                                {% else %}
+                                    <img src="{{ item.product.image.url }}" class="img-fluid checkout-img" alt="image of {{item.product.name|striptags}}"> 
+                                {% endif %}
+                                <!-- <img src="{{ item.product.image.url }}" class="img-fluid checkout-img" alt="image of {{item.product.name|striptags}}"> -->
                             </a>
                         </div>
                         <div class="col-7">
@@ -73,7 +78,6 @@
                         {{ order_form | crispy }}
                     </fieldset>
                     <fieldset>
-                   
                     </fieldset>
                     </fieldset>
                     <fieldset class="px-3">

@@ -33,7 +33,11 @@
                             {% for item in bag_items %}
                                 <tbody>
                                     <td class="p-1 w-25">
-                                        <img src="{{ item.product.image.url }}" class="img-fluid" alt="image of {{item.product.name|striptags}}">
+                                        {% if "placeholder" in item.product.image.url %}
+                                        <img src="{% static 'images/defualt-product-img.PNG' %}" class="card-img-top card-image" alt="place holder image">  
+                                    {% else %}
+                                        <img src="{{ item.product.image.url }}" class="img-fluid checkout-img" alt="image of {{item.product.name|striptags}}"> 
+                                    {% endif %}
                                     </td>
                                     <td> <p>{{ item.product.name }}</p></td>
                                     <td><p>£{{ item.product.price }}</p></td>
