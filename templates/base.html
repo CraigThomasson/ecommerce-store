@@ -43,7 +43,7 @@
     <!----------------------------------------------------------------------------------------- main site header -->
     <header class="container-fluid fixed_top bg-white text-center">
       <div class="row">
-        <a href="{% url 'home' %}">
+        <a href="{% url 'home' %}" aria-label="link to home page">
           <div class="col-12 col-lg-4 my-auto text-center text-lg-left"><span class="title-font-a">Candle</span><span class="title-font-b">Keep</span></div>
         </a>
         <div class="col-12 col-lg-4 my-auto">
@@ -70,17 +70,17 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="user-choices">
                 {% if request.user.is_authenticated %}
-                  <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                  <a href="{% url 'account_logout' %}" class="dropdown-item" aria-label="link to logout page">Logout</a>
                 {% else %}
-                  <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                  <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                  <a href="{% url 'account_signup' %}" class="dropdown-item" aria-label="link to sign up page">Register</a>
+                  <a href="{% url 'account_login' %}" class="dropdown-item" aria-label="link to login page">Login</a>
                 {% endif %}
               </div>
             </li>
             <!------------------------------------------------------- shopping bag link -->
             <!-- code taken from code institue boutique ado project -->
             <li class="list-inline-item">
-              <a class="{% if grand_total %}text-black font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'bag_view' %}">
+              <a class="{% if grand_total %}text-black font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'bag_view' %}" aria-label="link to shopping bag">
                   <div class="text-center">
                     <div><i class="fas fa-shopping-bag fa-lg"></i></div>
                     <p class="my-0">
