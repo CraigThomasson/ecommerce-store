@@ -111,7 +111,7 @@ a, a:hover, a:focus, a:active {
     height: 50%;
     margin: auto auto;
     object-fit: cover;
-    position: center center;
+    position: center;
 }
 
 /* ---------------------------------buttons */

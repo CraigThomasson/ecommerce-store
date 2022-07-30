@@ -236,6 +236,8 @@ there are 3 types of user on this site with different permissions guest users, l
     * https://favicon.io/favicon-generator/
 
 ## Testing
+results from https://validator.w3.org/ [here](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fcandlekeep-pp5.herokuapp.com%2F)
+    there where some issues with hythons in commets used to add descriptions but no errors in the code.
 
 ## deployment
 ### Forking the GitHub Repository
